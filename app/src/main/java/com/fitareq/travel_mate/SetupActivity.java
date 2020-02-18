@@ -174,6 +174,7 @@ public class SetupActivity extends AppCompatActivity {
                     Intent intent = new Intent(SetupActivity.this, HomeActivity.class);
                     startActivity(intent);
                     progressbar.setVisibility(View.GONE);
+                    finish();
                 }
             });
 

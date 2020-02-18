@@ -230,6 +230,7 @@ public class AddPostActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(AddPostActivity.this,HomeActivity.class);
         startActivity(intent);
+        finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
     }
 }

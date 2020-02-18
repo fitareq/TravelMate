@@ -181,6 +181,7 @@ public class UserProfileActivity extends AppCompatActivity {
                         intent.putExtra("position", position);
                         startActivity(intent);
                         overridePendingTransition(0,0);
+                        finish();
                     }
                 });
 
@@ -205,6 +206,7 @@ public class UserProfileActivity extends AppCompatActivity {
                         else
                             intent.putExtra("postimage","null");
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     }
                 });
@@ -467,5 +469,6 @@ public class UserProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(UserProfileActivity.this, HomeActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+        finish();
     }
 }

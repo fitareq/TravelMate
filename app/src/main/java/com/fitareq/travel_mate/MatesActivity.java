@@ -215,8 +215,8 @@ public class MatesActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (!updateActiveStatus.statusCheck())
-            updateActiveStatus.setActive();
+        /*if (!updateActiveStatus.statusCheck())
+            updateActiveStatus.setActive();*/
 
     }
 
@@ -243,6 +243,7 @@ public class MatesActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(MatesActivity.this,HomeActivity.class);
         startActivity(intent);
+        finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
     }
 }
