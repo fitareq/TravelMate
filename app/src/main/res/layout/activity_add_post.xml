@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:background="@color/background_material_light"
+    tools:context=".AddPostActivity">
+    <LinearLayout
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@color/gray"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="uploading image..."/>
+    </LinearLayout>
+
+<RelativeLayout
+    android:id="@+id/add_post_top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/add_post_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btn_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/add_post_toolbar"
+        android:background="@drawable/shadow"/>
+    <Button
+        android:id="@+id/add_post_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/btn_color"
+        android:text="@string/post"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textSize="@dimen/btn_txt_size"
+        android:textColor="@color/btn_txt_color"/>
+</RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red">
+            <EditText
+                android:id="@+id/add_post_travel_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/which_place_you_want_to_travel"
+                android:textSize="@dimen/edit_txt_size"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:singleLine="true"
+                android:imeOptions="actionNext" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red">
+            <EditText
+                android:id="@+id/add_post_travel_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/traveling_date"
+                android:textSize="@dimen/edit_txt_size"
+                android:inputType="date"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:imeOptions="actionNext"
+                android:clickable="true"
+                android:focusable="false"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/edit_text_style">
+                <EditText
+                    android:id="@+id/add_post_travel_plan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/what_is_your_plan"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:isScrollContainer="true"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/black"
+                    android:gravity="start"
+                    android:background="@color/background_material_light"
+                    android:imeOptions="actionDone"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
+
+
+
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
+</LinearLayout>

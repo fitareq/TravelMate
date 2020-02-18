@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    tools:context=".SetupActivity">
+    <LinearLayout
+        android:id="@+id/setup_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:visibility="gone"
+        android:gravity="center_vertical|center_horizontal">
+        <ProgressBar
+            android:indeterminate="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="100"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/setup_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_color"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        <Button
+            android:id="@+id/setup_save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/save"
+            android:background="@color/btn_color"
+            android:textSize="@dimen/btn_txt_size"
+            android:textColor="@color/btn_txt_color"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/setup_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/next"
+            android:background="@color/btn_color"
+            android:textSize="@dimen/btn_txt_size"
+            android:textColor="@color/btn_txt_color"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+    </RelativeLayout>
+
+
+
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red"
+                android:layout_marginTop="@dimen/_10sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/setup_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:drawableLeft="@drawable/username_icon"
+                    android:drawableStart="@drawable/username_icon" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/setup_ccp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ccp_defaultNameCode="bd"
+                app:ccp_showPhoneCode="false"
+                app:ccp_showFullName="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/edit_text_style"
+                />
+            <Spinner
+                android:id="@+id/setup_user_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_style"
+                android:entries="@array/gender"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red"
+                android:layout_marginTop="@dimen/_10sdp">
+                <EditText
+                    android:id="@+id/setup_nid_passport_driving_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nid_passport_driving_license"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:inputType="number"
+                    android:drawableLeft="@drawable/user_identification"
+                    android:nextFocusDown="@+id/setup_date_of_birth"
+                    android:drawableStart="@drawable/user_identification" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <EditText
+                    android:id="@+id/setup_date_of_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/date_of_birth"
+                    android:background="@drawable/edit_text_style"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:focusable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <EditText
+                    android:id="@+id/setup_address1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address Line 1"
+                    android:background="@drawable/edit_text_style"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:nextFocusDown="@id/setup_address2"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintAnimationEnabled="true"
+                app:errorTextAppearance="@color/red"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <EditText
+                    android:id="@+id/setup_address2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address Line 2 (optional)"
+                    android:background="@drawable/edit_text_style"
+                    android:textSize="@dimen/edit_txt_size"
+                    android:padding="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:nextFocusForward="@id/setup_save_button"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/_10sdp"
+        >
+
+        <FrameLayout
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_220sdp"
+            android:layout_marginTop="10dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/setup_user_profile_image"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_220sdp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:src="@drawable/profile_icon"
+                app:civ_border_width="@dimen/_2sdp"
+                app:civ_border_color="@color/colorPrimary"
+                />
+
+            <ImageView
+                android:padding="@dimen/_5sdp"
+                android:id="@+id/setup_add_profile_image"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/add_image_icon"
+                android:background="@drawable/circle_back"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_30sdp" />
+        </FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:hintAnimationEnabled="true"
+            app:errorTextAppearance="@color/red"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <EditText
+                android:id="@+id/setup_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="email"
+                android:background="@drawable/edit_text_style"
+                android:textSize="@dimen/edit_txt_size"
+                android:padding="@dimen/_10sdp"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:drawableLeft="@drawable/email_icon_smal"
+                android:drawableStart="@drawable/email_icon_smal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

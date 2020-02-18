@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1016110594593",
+    "firebase_url": "https://tmate-7d453.firebaseio.com",
+    "project_id": "tmate-7d453",
+    "storage_bucket": "tmate-7d453.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016110594593:android:e537dbcde0d49156840160",
+        "android_client_info": {
+          "package_name": "com.fitareq.travel_mate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016110594593-q6kstp7u2c3lbbf8kmk329kdf4mj5skm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fitareq.travel_mate",
+            "certificate_hash": "e6f1c2f60bb4e6ed9ab0ad42174156a912041163"
+          }
+        },
+        {
+          "client_id": "1016110594593-bsbujt1v6nv66tkod8rueihae01rk2uf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJMllKTpD9ytK6mXtEsJBUr6rWeYa5CcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016110594593-bsbujt1v6nv66tkod8rueihae01rk2uf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

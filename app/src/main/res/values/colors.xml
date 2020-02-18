@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#000000</color>
+    <color name="blue">#0000FF</color>
+    <color name="btn_color">#50bb96</color>
+    <color name="btn_txt_color">#cfffef</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#d3d3d3</color>
+    <color name="dark_gray">#adadad</color>
+    <color name="black">#000000</color>
+    <color name="postback">#ffffdd</color>
+    <color name="screen_back">#B0FFFFFF</color>
+    <color name="sender_msg">#00ACC1</color>
+    <color name="receiver_msg">#E53935</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#469646</color>
+</resources>

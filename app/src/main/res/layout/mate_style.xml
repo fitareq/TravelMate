@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/mates_back">
+
+    <FrameLayout
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/mateimage"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@mipmap/profile_round"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"/>
+        <ImageView
+            android:id="@+id/inactive_state"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/inactive_state"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="6dp"
+            />
+        <ImageView
+            android:id="@+id/active_state"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/active_state"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="6dp"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
+        <TextView
+            android:id="@+id/matename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="matename"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp" />
+        <TextView
+            android:id="@+id/last_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="last message"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+        <RelativeLayout
+            android:id="@+id/accept_reject_button_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginStart="250dp"
+            android:visibility="gone">
+            <ImageView
+                android:id="@+id/delete_mate_request"
+                android:padding="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_red_back"
+                android:src="@drawable/icon_delete_red"
+                />
+            <ImageView
+                android:id="@+id/accept_mate_request"
+                android:padding="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_green_back"
+                android:src="@drawable/icon_accept_green"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

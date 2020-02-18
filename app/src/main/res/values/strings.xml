@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">TravelMate</string>
+    <string name="signin_btn">Sign In</string>
+    <string name="signup_btn">Sign Up</string>
+    <string name="start_page_quotes">Find your mate, travel together and find your happiness....</string>
+    <string name="your_phone_number">phone number</string>
+    <string name="get_otp_code">send code</string>
+    <string name="code">code</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="next">next</string>
+    <string name="signup_message">Enter your phone number to SIGN UP. We will send you a ONE-TIME-PASSWORD(OTP) to verify it\'s really you.</string>
+    <string name="verify_message">Please check your phone and enter the code we\'ve sent.</string>
+    <string name="resend">RESEND</string>
+    <string name="code_not_received">didn\'t receive your code?  </string>
+    <string name="travel_feed">Travel Feed</string>
+    <string name="profile">Profile</string>
+    <string name="notification">Notification</string>
+    <string name="find_mate">Find Mate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_travelpost">what\'s your travel plan?</string>
+    <string name="post">POST</string>
+    <string name="where_are_you_going">Where are you going?</string>
+    <string name="when_will_you_start">when will you start?</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="which_place_you_want_to_travel">Destination</string>
+    <string name="traveling_date">Traveling date</string>
+    <string name="what_is_your_plan">your travel plan</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="nid_passport_driving_license">NID/Passport/Driving License</string>
+    <string name="save">save</string>
+    <string name="person_interested">0 person interested</string>
+    <string name="comment">0 comment</string>
+    <string name="login_note">By entering number you might receive an SMS message for verification and standard rates apply. Please be sure that the SIM card is in same device, otherwise you can not log in.</string>
+    <drawable name="like">@drawable/ic_pan_tool_black_24dp</drawable>
+    <drawable name="like_clicked">@drawable/ic_pan_tool_clicked_24dp</drawable>
+
+
+    <array name="gender">
+        <item>gender</item>
+        <item>male</item>
+        <item>female</item>
+        <item>non-binary</item>
+    </array>
+
+</resources>
