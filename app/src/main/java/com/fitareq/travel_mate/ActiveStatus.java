@@ -16,8 +16,8 @@ public class ActiveStatus
 {
     private String CURRENT_USER;
 
-    private Timer timer;
-    private TimerTask hourlyTask;
+   // private Timer timer;
+    //private TimerTask hourlyTask;
     private DatabaseReference reference;
     private Boolean active_status = false;
 
@@ -26,17 +26,18 @@ public class ActiveStatus
     {
         CURRENT_USER = FirebaseAuth.getInstance().getCurrentUser().getUid();
         reference = FirebaseDatabase.getInstance().getReference().child("users_active_status");
-        timer = new Timer();
+        reference.child(CURRENT_USER).child("status").setValue("active");
+        //timer = new Timer();
 
 
-        hourlyTask = new TimerTask() {
+        /*hourlyTask = new TimerTask() {
             @Override
             public void run ()
             {
                 reference.child(CURRENT_USER).child("status").setValue("active");
 
             }
-        };
+        };*/
     }
     Boolean statusCheck()
     {
@@ -50,6 +51,8 @@ public class ActiveStatus
                     active_status = s.equals("active");
 
                 }
+                else
+                    active_status = false;
 
             }
 
@@ -64,12 +67,12 @@ public class ActiveStatus
 
     void setActive()
     {
-        timer.schedule(hourlyTask,01, 1000*60);
+        //timer.schedule(hourlyTask,01, 1000*60);
+        reference.child(CURRENT_USER).child("status").setValue("active");
     }
 
     void setInactive()
     {
-            timer.cancel();
             reference.child(CURRENT_USER).child("status").setValue("inactive");
 
     }

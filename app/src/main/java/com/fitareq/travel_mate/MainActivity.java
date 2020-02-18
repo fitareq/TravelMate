@@ -1,6 +1,8 @@
 package com.fitareq.travel_mate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
     private Button SignIn;
     private int backPreesed=0;
     private FirebaseAuth mAuth;
+    ActiveStatus updateActiveStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+        updateActiveStatus = new ActiveStatus();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -51,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            finish();
+            //finish();
         }
+
+
     }
 
 

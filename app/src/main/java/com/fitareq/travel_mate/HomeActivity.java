@@ -1,5 +1,6 @@
 package com.fitareq.travel_mate;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -19,6 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +47,7 @@ import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements LifecycleObserver {
 
     BottomNavigationView bottomNavigationView;
     DatabaseReference UserRef;
@@ -60,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
     int count =0;
     AsyncTask<?,?,?> runningTask;
     ActiveStatus updateActiveStatus;
+    Dialog dialog;
 
 
     @Override
@@ -67,8 +73,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onStart();
 
 
-        if (!updateActiveStatus.statusCheck())
+        /*if (!updateActiveStatus.statusCheck())
+        {
+            Toast.makeText(this, "Changing to active", Toast.LENGTH_SHORT).show();
             updateActiveStatus.setActive();
+        }*/
+
         FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentuser == null)
         {
@@ -87,10 +97,25 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        /*if (updateActiveStatus.statusCheck())
+        {
+            Toast.makeText(HomeActivity.this, "Changing to inactive", Toast.LENGTH_SHORT).show();
+            updateActiveStatus.setInactive();
+        }*/
+    }
+
+
+    @Override
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
-
+        /*if (updateActiveStatus.statusCheck())
+        {
+            Toast.makeText(HomeActivity.this, "Changing to inactive", Toast.LENGTH_SHORT).show();
+            updateActiveStatus.setInactive();
+        }*/
 
     }
 
@@ -101,7 +126,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
         updateActiveStatus = new ActiveStatus();
+        dialog = new Dialog(HomeActivity.this);
         runningTask = new internetCheck();
 
 
@@ -184,21 +211,25 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_profile:
                         intent = new Intent(HomeActivity.this, UserProfileActivity.class);
+                        finish();
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
                     case R.id.nav_add_post:
                         intent = new Intent(HomeActivity.this, AddPostActivity.class);
+                        finish();
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
                         break;
                     case R.id.nav_notifitacion:
                         intent = new Intent(HomeActivity.this, NotificationActivity.class);
+                        finish();
                         startActivity(intent);
                         overridePendingTransition(0, 0);
                         break;
                     case R.id.nav_drawer:
                         intent = new Intent(HomeActivity.this, SettingsActivity.class);
+                        finish();
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
                         break;
@@ -211,7 +242,7 @@ public class HomeActivity extends AppCompatActivity {
         HomepageSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomepageSearch.bringToFront();
+
             }
         });
 
@@ -794,14 +825,54 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (count!=0)
-        {
-            super.onBackPressed();
-            updateActiveStatus.setInactive();
-            finish();
-        }
-        Toast.makeText(this, "press back again to exit", Toast.LENGTH_SHORT).show();
-        ++count;
+        /*AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setTitle("Do you really want to exit?");
+        builder.setPositiveButtonIcon(getResources().getDrawable(R.drawable.icon_accept_green));
+        builder.setNegativeButtonIcon(getResources().getDrawable(R.drawable.icon_delete_red));
+        builder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        updateActiveStatus.setInactive();
+                        finish();
+                        dialog.dismiss();
+                    }
+                });
+
+        builder.setNegativeButton("no",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();*/
+        //super.onBackPressed();
+        ImageView btnYes, btnNo;
+        dialog.setContentView(R.layout.exit_popup);
+        btnYes = dialog.findViewById(R.id.dialog_yes);
+        btnNo = dialog.findViewById(R.id.dialog_no);
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*if (updateActiveStatus.statusCheck())
+                {
+                    Toast.makeText(HomeActivity.this, "Changing to inactive", Toast.LENGTH_SHORT).show();
+                    updateActiveStatus.setInactive();
+                }*/
+                finish();
+                dialog.dismiss();
+            }
+        });
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
 
     }
+
 }
