@@ -43,7 +43,8 @@
             android:padding="@dimen/_5sdp"
             android:textColor="@color/btn_txt_color"
             android:layout_marginTop="@dimen/_30sdp"
-            android:layout_gravity="start"/>
+            android:layout_gravity="start"
+            android:layout_marginBottom="@dimen/_30sdp"/>
 
 
 </LinearLayout>

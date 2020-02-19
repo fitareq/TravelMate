@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     private Button SignIn;
     private int backPreesed=0;
     private FirebaseAuth mAuth;
-    ActiveStatus updateActiveStatus;
+    //ActiveStatus updateActiveStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        updateActiveStatus = new ActiveStatus();
+        //updateActiveStatus = new ActiveStatus();
 
         mAuth = FirebaseAuth.getInstance();
 
