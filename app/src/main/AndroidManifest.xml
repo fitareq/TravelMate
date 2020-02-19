@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".ArchLifecycleApp">
+        >
         <activity android:name=".NotificationActivity"></activity>
         <activity android:name=".ViewFullImageActivity" />
         <activity android:name=".MatesActivity" />
@@ -28,9 +28,7 @@
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".AddPostActivity" />
         <activity android:name=".HomeActivity" />
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

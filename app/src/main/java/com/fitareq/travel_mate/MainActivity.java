@@ -7,7 +7,10 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Animation animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+        Animation animFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
 
         //updateActiveStatus = new ActiveStatus();
 
@@ -32,11 +38,20 @@ public class MainActivity extends AppCompatActivity {
 
         SignIn = findViewById(R.id.start_page_signin);
 
+        animFadeIn.reset();
+        animFadeOut.reset();
+
+        SignIn.clearAnimation();
+        SignIn.startAnimation(animFadeOut);
+
 
         SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+
+                //SignIn.clearAnimation();
+                //SignIn.startAnimation(animFadeOut);
                 Intent signinIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(signinIntent);
             }
@@ -48,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
 
         FirebaseUser currentuser = mAuth.getCurrentUser();
         if(currentuser!=null)

@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,14 +25,12 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.hbb20.CountryCodePicker;
-import com.r0adkll.slidr.Slidr;
-
 import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
 
     private PhoneAuthProvider.ForceResendingToken ResendingToken;
-    private EditText PhoneNumber,OtpCode;
+    private TextInputEditText PhoneNumber,OtpCode;
     private Button SignIn, SendOtpCode;
     private String phonenum,code,verificationId;
     private CountryCodePicker countryCodePicker;
@@ -50,9 +49,10 @@ public class LoginActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.signin_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Sign In");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Sign In");
+
 
 
         PhoneNumber = findViewById(R.id.signin_phone_number);
