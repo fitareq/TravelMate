@@ -16,9 +16,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".NotificationActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".AhadActivity"></activity>
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".ViewFullImageActivity" />
         <activity android:name=".MatesActivity" />
         <activity android:name=".SinglePostActivity" />
